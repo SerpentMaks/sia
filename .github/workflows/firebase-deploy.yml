@@ -1,0 +1,28 @@
+name: Firebase Deploy
+
+on:
+  push:
+    branches:
+      - main  # Замените на основную ветку вашего репозитория
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'  # Версия Node.js, используемая в проекте
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build project
+      run: npm run build  # Измените эту команду на команду сборки вашего проекта
+
+    - name: Deploy to Firebase Hosting
+      run: firebase deploy --token ${{ secrets.FIREBASE_TOKEN }}
