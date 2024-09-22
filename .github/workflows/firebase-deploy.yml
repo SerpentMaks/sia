@@ -24,4 +24,4 @@ jobs:
     - name: Deploy to Firebase Hosting
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}  # Использование токена из секретов
-      run: firebase deploy --only hosting --project jtjjjf-53a73
+      run: firebase deploy --only hosting --project fgfg-d36ec
